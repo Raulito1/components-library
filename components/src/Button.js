@@ -15,12 +15,19 @@ function Button({
 }
 
 Button.propTypes = {
-    primary: PropTypes.bool.isRequired,
-    secondary: PropTypes.bool,
-    success: PropTypes.bool,
-    warning: PropTypes.bool,
-    danger: PropTypes.bool,
-    outline: PropTypes.bool,
-    rounded: PropTypes.bool
+    checkButtonVariation: ({ primary, secondary, success, warning, danger, outline, rounded }) => {
+        const count = 
+        Number(!!primary) +
+        Number(!!secondary) +
+        Number(!!success) +
+        Number(!!warning) +
+        Number(!!danger)
+
+        if (count > 1) {
+            return new Error(
+                `Only one of primary, secondary, success, warning, danger and outline can be true.`
+            );
+        }
+    }
 }
 export default Button;
