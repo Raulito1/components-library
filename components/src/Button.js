@@ -9,10 +9,11 @@ function Button({
     warning,
     danger,
     outline,
-    rounded
+    rounded,
+    onClick
 }) {
     let classes = className(
-        'px-3 py-1.5 border', 
+        'flex items-center px-3 py-1.5 border', 
     {
         'border-blue-500 bg-blue-500 text-white': primary,
         'border-gray-900 bg-gray-900 text-white': secondary,
@@ -32,7 +33,7 @@ function Button({
 
     console.log("Generated classes:", classes); // Add this line to log the generated classes
 
-    return <button className={classes}>{children}</button>;
+    return <button onClick={onClick} className={classes}>{children}</button>;
 }
 
 Button.propTypes = {
