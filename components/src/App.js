@@ -1,11 +1,13 @@
 import React from 'react';
 import Button from './Button';
 
+import { GoCopilot } from "react-icons/go";
+
 function App() {
     return (
     <div>
         <div>
-            <Button success rounded outline> Click me!</Button>
+            <Button secondary outline><GoCopilot/> Click me!</Button>
         </div>
         <div>
             <Button danger outline>Help Me!</Button>
