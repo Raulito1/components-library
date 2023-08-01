@@ -1,16 +1,21 @@
 import React from 'react';
-import Button from './components/Button';
+
+// components 
+import Button from '../components/Button';
 
 // Icons from react-icons
 import { GoFlame } from "react-icons/go";
 import { GoAlert } from "react-icons/go";
 import { GoThumbsup } from "react-icons/go";
 
-function App() {
+function ButtonPage() {
+    const handleOnClick = () => {
+        console.log('Button clicked!');
+    }
     return (
         <div>
             <div>
-                <Button className="mb-5" primary outline rounded>
+                <Button className="mb-5" primary outline rounded onClick={handleOnClick}>
                     Primary
                 </Button>
             </div>
@@ -38,4 +43,4 @@ function App() {
     );
 }
 
-export default App;
+export default ButtonPage;
