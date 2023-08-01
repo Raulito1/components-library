@@ -1,31 +1,38 @@
 import React from 'react';
 import Button from './Button';
 
-import { GoCopilot } from "react-icons/go";
+// Icons from react-icons
+import { GoFlame } from "react-icons/go";
+import { GoAlert } from "react-icons/go";
+import { GoThumbsup } from "react-icons/go";
 
 function App() {
-    const handleClick = () => {
-        console.log("Clicked!");
-    }
-    
     return (
         <div>
             <div>
-                <Button secondary outline onClick={handleClick}>
-                    <GoCopilot/> Click me!
+                <Button className="mb-5" primary outline rounded>
+                    Primary
                 </Button>
             </div>
             <div>
-                <Button danger outline>Help Me!</Button>
+                <Button className="mb-5" secondary outline rounded>
+                    Secondary
+                </Button>
             </div>
             <div>
-                <Button warning>Stop!</Button>
+                <Button className="mb-5" success outline rounded>
+                    <GoThumbsup/>Success
+                </Button>
             </div>
             <div>
-                <Button secondary outline>Clear!</Button>
+                <Button className="mb-5" warning outline rounded>
+                    <GoAlert/>Warning
+                </Button>
             </div>
             <div>
-                <Button primary rounded>New Order!</Button>
+                <Button className="mb-5" danger outline rounded>
+                    <GoFlame/>Danger
+                </Button>
             </div>
         </div>
     );
