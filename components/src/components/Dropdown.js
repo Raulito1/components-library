@@ -1,10 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+
+import Panel from './Panel';
 
 import { BiChevronUp } from "react-icons/bi";
 import { BiChevronDown } from "react-icons/bi";
 
 function Dropdown({ options, selection, onSelect }) {
     const [selected, setSelected] = useState(false);
+    const divRef = useRef();
+
+    useEffect(() => {
+        // event handler for clicks anywhere on the page
+        const onBodyClick = (event) => {
+            if (!divRef.current.contains(event.target)) {
+                setSelected(false);
+            }
+        }
+
+        // add event listener to the body element to listen for clicks anywhere on the page (capture: true)
+        document.body.addEventListener('click', onBodyClick, { capture: true });
+
+        // cleanup function to remove the event listener
+        return () => {
+            document.body.removeEventListener('click', onBodyClick, { capture: true });
+        }
+    }, []);
 
     const icon = <span className='text-3xl'>{selected ? <BiChevronDown/> : <BiChevronUp/>}</span>;
 
@@ -33,9 +53,11 @@ function Dropdown({ options, selection, onSelect }) {
     // }
 
     return (
-        <div className='w-48 relative'>
-            <div className='flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full' onClick={onSelectedChange}>{selection?.label || 'Select ...'}{icon}</div>
-            {selected && <div className='absolute top-full border rounded p-3 shadow bg-white w-full'>{renderedOptions}</div>}
+        <div ref={divRef} className='w-48 relative'>
+            <Panel className='flex justify-between items-center cursor-pointer' onClick={onSelectedChange}>
+                {selection?.label || 'Select ...'}{icon}
+            </Panel>
+            {selected && <Panel className='absolute top-full'>{renderedOptions}</Panel>}
         </div>
     );
 }
