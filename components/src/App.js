@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // components
-import Dropdown from "./pages/Dropdown";
+import Dropdown from "./components/Dropdown";
 
 function App() {
     const [selection, setSelection] = useState(null);
