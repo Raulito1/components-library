@@ -8,8 +8,9 @@ import { GoAlert, GoFlame, GoThumbsup } from 'react-icons/go';
 
 function ButtonPage() {
     const handleOnClick = () => {
-        console.log('Button clicked!');
+        alert('Button clicked!');
     }
+
     return (
         <div className='flex space-x-10'>
             <div>

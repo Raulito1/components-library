@@ -25,7 +25,7 @@ function DropdownPage() {
         { label: "A Shade of Blue", value: "blue" },
     ]
     return (
-        <div className='flex'>
+        <div className='flex space-x-4'>
             <Dropdown options={options} selection={selection1} onSelect={onSelectedChange1}/>
             <Dropdown options={options} selection={selection2} onSelect={onSelectedChange2}/>
         </div>
