@@ -27,7 +27,6 @@ function Dropdown({ options, selection, onSelect }) {
     }, []);
 
     const icon = <span className='text-3xl'>{selected ? <BiChevronDown/> : <BiChevronUp/>}</span>;
-
     const onSelectedChange = () => {
         setSelected(!selected);
     };
