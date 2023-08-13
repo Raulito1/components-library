@@ -4,7 +4,8 @@ function Sidebar() {
     const links = [
         { path: '/', label: 'Accordian' },
         { path: '/dropdown', label: 'Dropdown' },
-        { path: '/button', label: 'Button' }
+        { path: '/button', label: 'Button' },
+        { path: '/modal', label: 'Modal' },
     ]
 
     const renderedLinks = links.map((link) => {
